@@ -3,7 +3,7 @@
 monthly.revenue <-c(337898, 456297, 367366, 378377, 464878, 383897, 474689, 373877, 383898, 484778)
 mean(monthly.revenue)
 sd(monthly.revenue)
-quantile((monthly.revenue)
+quantile(monthly.revenue)
 
 #We can investigate if monthly earnings deviates systematically from a recommended value of 574787.
 
