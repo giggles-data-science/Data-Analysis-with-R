@@ -1,0 +1,30 @@
+attach(iris)
+
+#We can compute the summary statistics within particular groups of interest
+#Let's compute the mean sepal length for each iris species
+
+tapply(iris$Sepal.Length, iris$Species, mean)
+#    setosa versicolor  virginica 
+#     5.006      5.936      6.588 
+
+#now the standard deviation
+tapply(iris$Sepal.Length, iris$Species, sd)
+#    setosa versicolor  virginica 
+# 0.3524897  0.5161711  0.6358796 
+
+#now the length
+tapply(iris$Sepal.Length, iris$Species, length)
+#    setosa versicolor  virginica 
+#        50         50         50 
+
+#nicer display
+
+xbar <- tapply(iris$Sepal.Length, iris$Species, mean)
+s <- tapply(iris$Sepal.Length, iris$Species, sd)
+n <- tapply(iris$Sepal.Length, iris$Species, length)
+cbind(mean = xbar, std.dev = s, n = n)
+
+#            mean   std.dev  n
+# setosa     5.006 0.3524897 50
+# versicolor 5.936 0.5161711 50
+# virginica  6.588 0.6358796 50
