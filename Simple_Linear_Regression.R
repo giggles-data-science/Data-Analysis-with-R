@@ -138,3 +138,22 @@ predict(reg.mod, int = "p")
 #   predictions on current data refer to _future_ responses
  
 
+#Correlation
+
+#correlation coefficient measures the level of association between two random variables 
+#ranges from -1 to 1 the extremes equal perfect correlation and zero equals no correlation
+#negative when large values of one variable are associated with small values of another
+#positive if both variables tend to be large or small simultaneously
+
+cor.test(speed, dist)
+
+# Pearson's product-moment correlation
+
+# data:  speed and dist
+# t = 9.464, df = 48, p-value = 1.49e-12
+# alternative hypothesis: true correlation is not equal to 0
+# 95 percent confidence interval:
+#  0.6816422 0.8862036
+# sample estimates:
+#       cor 
+# 0.8068949 
