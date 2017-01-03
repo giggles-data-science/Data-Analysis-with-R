@@ -1,7 +1,17 @@
+#linear regression modeling is useful for describing the relationship between two variables
 attach(cars)
 
+#describe speed as a function of distance
+#use lm (linear model) for linear regression analysis
+# ~ should be read as described by 
+#result of lm is encapsulated in a model object and we can use extractor functions, 
+#such as 'summary' to obtain the values
 reg.mod <- lm(speed ~ dist)
 
+#yi lies on a straight line, Beta regression coefficient is the slope or the increase per unit change in x
+#the line intersects the y - axis at the intercept
+#parameters can be estimated using the method of least squares
+#the empirical slope will deviate from the true values due to sampling variation
 summary(reg.mod)
 
 # Call:
@@ -28,11 +38,11 @@ summary(reg.mod)
 #0 < p value <0.05
 
 #draw the points and add a fitted line
-
 plot(dist, speed)
 abline(reg.mod)
 
-#
+#the function 'fitted' returns fitted values or the y-values that would be expected for the given x-values
+#acording to the best fitting straight line
 fitted(reg.mod)
 
 #         1         2         3         4         5         6         7         8 
@@ -50,7 +60,7 @@ fitted(reg.mod)
 #        49        50 
 # 28.152015 22.357149 
 
-#
+#resid function returns the difference between the fitted value and the observed value
 resid(reg.mod)
 
 #           1           2           3           4           5           6 
@@ -72,20 +82,20 @@ resid(reg.mod)
 #          49          50 
 # -4.15201460  2.64285051 
 
-#
+#put fitted line on plot
 plot(dist, speed)
 lines(dist, fitted(reg.mod))
 
-#
+#plot w/ residuals connected to the observations on the fitted line
 segments(dist, fitted(reg.mod), dist, speed)
 
-#
+#plot of residuals versus fitted values
 plot(fitted(reg.mod), resid(reg.mod))
 
-#
+#check if residuals come from a normal distribution
 qqnorm(resid(reg.mod))
 
-#
+#fitted values
 predict(reg.mod)
 
 
@@ -104,7 +114,7 @@ predict(reg.mod)
 #        49        50 
 # 28.152015 22.357149 
 
-#
+#expected values with confidence intervals
 predict(reg.mod, int = "c")
 
 #         fit       lwr      upr
@@ -114,7 +124,7 @@ predict(reg.mod, int = "c")
 # 4  11.926392 10.764584 13.08820
 # 5  10.932987  9.626909 12.23906
 
-#
+#prediction for new cars with these dist values
 predict(reg.mod, int = "p")
 #          fit       lwr      upr
 # 1   8.615041  2.046715 15.18337
