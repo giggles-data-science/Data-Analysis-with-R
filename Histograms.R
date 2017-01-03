@@ -16,3 +16,17 @@ hist(grade.acc, breaks = brk)
 #the probability of of getting a value in a particular interval is the area under the corresponding part of the curve 
 
 #density for a discrete distribution is used for the point probability of getting exactly the value of x 
+
+#plot separate histogram for each value of the group Species
+#reset to mfrow 1,1 after plot 
+attach(iris)
+
+sepal.length.setosa <- Sepal.Length[Species == "setosa"]
+sepal.length.versicolor <- Sepal.Length[Species == "versicolor"]
+sepal.length.virginica <- Sepal.Length[Species == "virginica"]
+
+par(mfrow=c(3,1))
+hist(sepal.length.setosa, col="white")
+hist(sepal.length.versicolor, col="grey")
+hist(sepal.length.virginica, col="white")
+par(mfrow=c(1,1))
