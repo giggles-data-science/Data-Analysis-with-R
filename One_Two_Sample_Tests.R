@@ -32,8 +32,17 @@ t.test(monthly.revenue, mean = 574787)
 
 
 #two sample t test
+         
+#Question trying to answer: Do I trust the difference in means to be a result of differences in population 
+# or are the populations equivalent?
+     
 
 #used to test the hypothesis that two samples may be assumed to come from distributions with the same mean 
+#use if you have two sets of data and want to know if they're drawn from the same population
+#Null hypothesis: populations are the same
+#a small p-value indicates that it's highly unlikely the difference in means is simply due to chance.
+#A large p-value indicates that it's highly likely that the difference in means is simply due to chance.
+#If large p-value then we can assume the null is true and the difference we measured is the luck of the draw.
 
 attach(iris)
 
