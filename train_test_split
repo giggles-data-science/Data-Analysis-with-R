@@ -1,0 +1,12 @@
+# By default R comes with few datasets. 
+data = mtcars
+dim(data)  # 32 11
+ 
+#Sample Indexes
+indexes = sample(1:nrow(data), size=0.2*nrow(data))
+ 
+# Split data
+test = data[indexes,]
+dim(test)  # 6 11
+train = data[-indexes,]
+dim(train) # 26 11
