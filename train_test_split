@@ -1,12 +1,21 @@
-# By default R comes with few datasets. 
-data = mtcars
-dim(data)  # 32 11
- 
-#Sample Indexes
-indexes = sample(1:nrow(data), size=0.2*nrow(data))
- 
+indexes = sample(1:nrow(sparse_dtm), size=0.2*nrow(sparse_dtm))
+
 # Split data
-test = data[indexes,]
-dim(test)  # 6 11
-train = data[-indexes,]
-dim(train) # 26 11
+train <- sparse_dtm[-indexes,]
+test <- sparse_dtm[indexes,]
+dim(test)  
+dim(train) 
+
+X <- train[, -which(names(train) == "Class")]
+y <- subset(train, select = "Class")
+y$Class <- as.factor(y$Class)
+
+train_test_n <- nrow(X)
+train_n <- round(.80 * train_test_n)
+test_n <- round(.20 * train_test_n)
+
+X_train <- head(X, train_n)
+y_train <- head(y, train_n)
+
+X_test <- tail(X, test_n)
+y_test <- tail(y, test_n)
